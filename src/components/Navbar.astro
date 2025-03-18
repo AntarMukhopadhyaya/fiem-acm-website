@@ -56,7 +56,7 @@
   const spans = mobileMenuButton?.querySelectorAll('span');
 
   function toggleMenu() {
-    // Toggle hamburger animation
+    
     spans?.forEach((span, index) => {
       if (index === 0) {
         span.classList.toggle('rotate-45');
@@ -71,7 +71,7 @@
       }
     });
 
-    // Toggle menu and overlay
+   
     mobileMenu?.classList.toggle('translate-x-full');
     overlay?.classList.toggle('opacity-0');
     overlay?.classList.toggle('pointer-events-none');
@@ -81,7 +81,7 @@
   mobileMenuButton?.addEventListener('click', toggleMenu);
   overlay?.addEventListener('click', toggleMenu);
 
-  // Close menu when clicking links
+ 
   const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
   mobileMenuLinks?.forEach(link => {
     link.addEventListener('click', toggleMenu);
