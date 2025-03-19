@@ -13,7 +13,11 @@ export default defineConfig({
   },
 
   integrations: [
-    icon(),
+    icon({
+      include: {
+        mdi: ["*"],
+      },
+    }),
     react({
       include: ["**/react/*"],
     }),

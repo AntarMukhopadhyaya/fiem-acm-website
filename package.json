@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.1",
-    "@tailwindcss/postcss": "^4.0.14",
+    "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/vite": "^4.0.8",
     "@vitejs/plugin-react": "^4.3.4",
     "astro": "^5.3.1",
