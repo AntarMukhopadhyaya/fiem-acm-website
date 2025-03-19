@@ -4,7 +4,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-primary shadow-md py-4 relative">
+    <header className="bg-primary shadow-md py-4 fixed top-0 w-full z-50">
       <nav className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-white">ACM Student Chapter</h1>

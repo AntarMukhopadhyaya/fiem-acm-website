@@ -1,103 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Events from "../components/Events.astro";
+import Contact from "../components/Contact.astro";
+import GallerySection from "../components/Gallery";
 ---
 
 <BaseLayout>
-  <section class="h-screen w-full rounded-md flex items-center justify-center   relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 text-center justify-center">
-      <h1 class="text-4xl md:text-7xl font-bold bg-clip-text text-primary ">
-        Welcome to FIEM ACM Student Chapter
-      </h1>
-      <p class="mt-4 text-xl text-secondary">
-        Empowering students to innovate and learn through technology.
-      </p>
-      <a
-        href="#about"
-        class="inline-block bg-primary text-white px-6 py-3 mt-8 rounded-lg shadow hover:bg-secondary transition"
-      >
-        Learn More
-      </a>
-    </div>
-  </section>
-
-  <section id="about" class="py-20 bg-accent">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold text-primary">About Us</h2>
-      <p class="mt-4 text-lg text-gray-700">
-        The FIEM ACM Student Chapter aims to bridge the gap between students and
-        the tech industry through workshops, events, and collaborative learning.
-      </p>
-    </div>
-  </section>
-
-  <section id="events" class="bg-background py-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-primary mb-8">
-        Upcoming Events
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-accent transition">
-          <h3 class="text-2xl font-semibold text-primary">Hackspire</h3>
-          <p class="text-secondary mt-2">
-            Innovate and create real-world solutions.
-          </p>
-          <a href="#" class="inline-block mt-4 text-primary hover:underline">
-            Learn More
-          </a>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-accent transition">
-          <h3 class="text-2xl font-semibold text-primary">Tech Talks</h3>
-          <p class="text-secondary mt-2">
-            Engage with industry experts and leaders.
-          </p>
-          <a href="#" class="inline-block mt-4 text-primary hover:underline">
-            Learn More
-          </a>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-accent transition">
-          <h3 class="text-2xl font-semibold text-primary">Workshops</h3>
-          <p class="text-secondary mt-2">
-            Hands-on learning with experienced mentors.
-          </p>
-          <a href="#" class="inline-block mt-4 text-primary hover:underline">
-            Learn More
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="gallery" class="py-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-gray-800">Gallery</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-        <div class="overflow-hidden rounded-lg shadow">
-          <img src="https://placehold.co/600x400" alt="Event 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="overflow-hidden rounded-lg shadow">
-          <img src="https://placehold.co/600x400" alt="Event 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="overflow-hidden rounded-lg shadow">
-          <img src="https://placehold.co/600x400" alt="Event 3" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="overflow-hidden rounded-lg shadow">
-          <img src="https://placehold.co/600x400" alt="Event 4" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-20 bg-accent">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold text-primary">Contact Us</h2>
-      <p class="mt-4 text-lg text-secondary">
-        Have questions? Get in touch with us today!
-      </p>
-      <a
-        href="mailto:test@gmail.com"
-        class="inline-block bg-primary text-white px-6 py-3 mt-8 rounded-lg shadow hover:bg-secondary transition"
-      >
-        Send an Email
-      </a>
-    </div>
-  </section>
+  <Hero />
+  <About />
+  <Events />
+  <GallerySection client:load />
+  <Contact />
 </BaseLayout>
