@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
+import { FollowerPointerCard } from "./ui/following-pointer";
 
 const OurTeam = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -67,46 +70,73 @@ const OurTeam = () => {
     ],
   };
 
-  return (
-    <section
-      id="our-team"
-      className="relative py-16 md:py-24 bg-gradient-to-br from-[#f0f4ff] to-[#e0eafc] overflow-hidden"
-    >
-      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl" />
+  const TitleComponent = ({ title, avatar }) => (
+    <div className="flex items-center gap-2">
+      <img
+        src={avatar}
+        height="20"
+        width="20"
+        alt="thumbnail"
+        className="h-5 w-5 rounded-full border-2 border-white object-cover"
+      />
+      <p className="text-sm font-medium text-white">{title}</p>
+    </div>
+  );
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary inline-block relative">
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-background to-gray-100 py-16 md:py-24">
+      <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full" />
+      <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-10 text-center md:mb-16">
+          <h2 className="relative inline-block text-3xl font-bold text-primary md:text-5xl">
             Our Artistic Team
-            <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary" />
+            <span className="absolute -bottom-3 left-1/2 h-1 w-24 -translate-x-1/2 transform bg-primary" />
           </h2>
-          <p className="mt-4 md:mt-6 text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            The passionate creators from Future Institute of Engineering and Management
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-700 md:mt-6 md:text-xl">
+            The passionate creators from Future Institute of Engineering and
+            Management
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
           {teamMembers.all.map((member) => (
-            <div
-              key={member.id}
-              className="group transform transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="flex flex-col items-center text-center p-6 rounded-2xl shadow-xl backdrop-blur-lg bg-white/30 border border-white/40 transition duration-500 hover:shadow-2xl hover:bg-white/50">
-                <div className="relative w-40 h-40 mb-4">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover rounded-full shadow-lg transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+            <div key={member.id} className="mx-auto w-full sm:max-w-sm">
+              <FollowerPointerCard
+                title={
+                  <TitleComponent title={member.name} avatar={member.image} />
+                }
+              >
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-200 bg-gray-200 transition duration-200 hover:shadow-xl">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-200">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h2 className="my-4 text-lg font-bold text-zinc-700">
+                      {member.name}
+                    </h2>
+                    <h2 className="my-4 text-sm font-normal text-zinc-500">
+                      {member.position}
+                    </h2>
+                    <h2 className="my-4 text-sm font-normal text-zinc-500">
+                      {member.department}, {member.year}
+                    </h2>
+                    <div className="mt-10 flex flex-row items-center justify-between">
+                      <span className="text-sm text-gray-500">
+                        {member.college.split(" ")[0]}
+                      </span>
+                      <div className="relative z-10 block rounded-xl bg-black px-6 py-2 text-xs font-bold text-white">
+                        View Profile
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-primary">{member.name}</h3>
-                <p className="text-sm text-gray-600">{member.position}</p>
-                <p className="text-sm text-gray-500 mt-1">{member.department}</p>
-                <p className="text-sm text-gray-500 mt-1">{member.year}</p>
-                <p className="text-sm text-gray-500 mt-1">{member.college}</p>
-              </div>
+              </FollowerPointerCard>
             </div>
           ))}
         </div>
